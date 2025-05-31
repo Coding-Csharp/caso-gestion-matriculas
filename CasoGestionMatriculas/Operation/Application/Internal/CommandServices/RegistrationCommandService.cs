@@ -22,10 +22,10 @@ namespace CasoGestionMatriculas.Operation.Application.Internal.CommandServices
             }
             catch (Exception) { return false; }
         }
-        public bool Handle(UpdateRegistrationCommand command)
+        public void Handle(UpdateRegistrationCommand command)
             => registrationRepository.Update(new(command));
 
-        public bool Handle(DeleteRegistrationCommand command)
+        public void Handle(DeleteRegistrationCommand command)
             => registrationRepository.Remove(new(command));
     }
 }
