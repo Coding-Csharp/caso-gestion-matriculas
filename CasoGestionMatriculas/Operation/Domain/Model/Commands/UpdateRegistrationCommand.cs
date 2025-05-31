@@ -2,5 +2,5 @@
 
 namespace CasoGestionMatriculas.Operation.Domain.Model.Commands
 {
-    public record UpdateRegistrationCommand(int Id, ERegistrationState state);
+    public record UpdateRegistrationCommand(int Id, ERegistrationState State);
 }

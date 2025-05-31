@@ -6,10 +6,10 @@ namespace CasoGestionMatriculas.Operation.Domain.Model.Entities
     public class Course
     {
         public int Id { get; }
-        public DateOnly EnrollmentDate { get; set; }
-        public string Name { get; set; } = null!;
+        public DateOnly EnrollmentDate { get; private set; }
+        public string Name { get; private set; } = null!;
 
-        public virtual ICollection<Registration> Registrations { get; set; } = [];
+        public virtual ICollection<Registration> Registrations { get; } = [];
 
         public Course() { }
         public Course(CreateCourseCommand command)
