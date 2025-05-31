@@ -1,0 +1,6 @@
+@CasoGestionMatriculas_HostAddress = http://localhost:5217
+
+GET {{CasoGestionMatriculas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

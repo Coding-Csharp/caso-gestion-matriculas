@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Operation\Application\Internal\CommandServices\" />
+    <Folder Include="Operation\Application\Internal\QueryServices\" />
+    <Folder Include="Operation\Domain\Model\Aggregates\" />
+    <Folder Include="Operation\Domain\Repositories\" />
+    <Folder Include="Operation\Domain\Services\" />
+    <Folder Include="Operation\Infrastructure\Persistence\Repositories\" />
+    <Folder Include="Operation\Interfaces\REST\Transform\" />
+    <Folder Include="Operation\Interfaces\REST\Resources\" />
+  </ItemGroup>
+
+</Project>
