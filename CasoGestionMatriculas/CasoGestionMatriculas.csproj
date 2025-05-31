@@ -27,7 +27,6 @@
   <ItemGroup>
     <Folder Include="Operation\Application\Internal\CommandServices\" />
     <Folder Include="Operation\Application\Internal\QueryServices\" />
-    <Folder Include="Operation\Infrastructure\Persistence\Repositories\" />
     <Folder Include="Operation\Interfaces\REST\Transform\" />
     <Folder Include="Operation\Interfaces\REST\Resources\" />
   </ItemGroup>
