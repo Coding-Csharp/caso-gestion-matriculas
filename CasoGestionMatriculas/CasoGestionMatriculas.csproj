@@ -27,8 +27,6 @@
   <ItemGroup>
     <Folder Include="Operation\Application\Internal\CommandServices\" />
     <Folder Include="Operation\Application\Internal\QueryServices\" />
-    <Folder Include="Operation\Domain\Model\Commands\" />
-    <Folder Include="Operation\Domain\Model\Queries\" />
     <Folder Include="Operation\Domain\Repositories\" />
     <Folder Include="Operation\Domain\Services\" />
     <Folder Include="Operation\Infrastructure\Persistence\Repositories\" />

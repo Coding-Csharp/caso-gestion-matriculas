@@ -1,4 +1,5 @@
 ﻿using CasoGestionMatriculas.Operation.Domain.Model.Aggregates;
+using CasoGestionMatriculas.Operation.Domain.Model.Commands;
 
 namespace CasoGestionMatriculas.Operation.Domain.Model.Entities
 {
@@ -13,5 +14,16 @@ namespace CasoGestionMatriculas.Operation.Domain.Model.Entities
         public string Email { get; set; } = null!;
 
         public virtual ICollection<Registration> Registrations { get; set; } = [];
+
+        public Student() { }
+        public Student(CreateStudentCommand command)
+        {
+            this.Id = command.Id;
+            this.Firstname = command.Firstname;
+            this.Lastname = command.Lastname;
+            this.Birthday = command.Birthday;
+            this.Phone = command.Phone;
+            this.Email = command.Email;
+        }
     }
 }
