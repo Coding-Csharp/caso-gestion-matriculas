@@ -3,5 +3,7 @@
 namespace CasoGestionMatriculas.Operation.Domain.Model.Commands
 {
     public record CreateRegistrationCommand
-        (int CourseId, int StudentId, ERegistrationState State);
+        (int CourseId, int StudentId,
+        DateOnly EnrollmentDate,
+        ERegistrationState State);
 }

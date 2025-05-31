@@ -9,6 +9,7 @@ namespace CasoGestionMatriculas.Operation.Interfaces.REST.Transform
         public static CreateRegistrationCommand ToCommandFromResource
             (CreateRegistrationResource resource) =>
             new(resource.CourseId, resource.StudentId,
+                resource.EnrollmentDate,
                 Enum.Parse<ERegistrationState>(resource.State));
     }
 }

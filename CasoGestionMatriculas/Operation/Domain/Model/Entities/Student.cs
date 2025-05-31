@@ -22,6 +22,7 @@ namespace CasoGestionMatriculas.Operation.Domain.Model.Entities
             this.Firstname = command.Firstname;
             this.Lastname = command.Lastname;
             this.Birthday = command.Birthday;
+            this.Genre = command.Genre;
             this.Phone = command.Phone;
             this.Email = command.Email;
         }

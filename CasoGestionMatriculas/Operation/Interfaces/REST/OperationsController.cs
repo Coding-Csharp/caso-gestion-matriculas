@@ -20,9 +20,6 @@ namespace CasoGestionMatriculas.Operation.Interfaces.REST
         public async Task<IActionResult> CreateCourse
             ([FromBody] CreateCourseResource resource)
         {
-            if (resource.EnrollmentDate > DateOnly.Parse(DateTime.Now.ToString()))
-                return BadRequest("LA FECHA NO PUEDE SER MAYOR QUE LA ACTUAL.");
-
             if (string.IsNullOrEmpty(resource.Name.Trim()))
                 return BadRequest("EL NOMBRE NO PUEDE SER VACIO O CON ESPACIOS.");
 
@@ -48,6 +45,9 @@ namespace CasoGestionMatriculas.Operation.Interfaces.REST
 
             if (string.IsNullOrEmpty(resource.Lastname.Trim()))
                 return BadRequest("EL APELLIDO NO PUEDE SER VACIO O CON ESPACIOS.");
+
+            if (resource.Birthday > DateOnly.FromDateTime(DateTime.Now))
+                return BadRequest("LA FECHA DE NACIMIENTO NO PUEDE SER MAYOR QUE LA ACTUAL.");
 
             if (string.IsNullOrEmpty(resource.Genre.Trim()))
                 return BadRequest("EL GENERO NO PUEDE SER VACIO O CON ESPACIOS.");
@@ -78,8 +78,18 @@ namespace CasoGestionMatriculas.Operation.Interfaces.REST
             if (resource.StudentId < 1)
                 return BadRequest("EL ID DEL ESTUDIANTE DEBE SER MAYOR A 0.");
 
+            if (resource.EnrollmentDate > DateOnly.FromDateTime(DateTime.Now))
+                return BadRequest("LA FECHA NO PUEDE SER MAYOR QUE LA ACTUAL.");
+
             if (!Enum.TryParse<ERegistrationState>(resource.State, true, out var state))
                 return BadRequest("EL ESTADO NO ES VALIDO.");
+
+            var registrations = await registrationQueryService.Handle
+                (new GetRegistrationsByCourseIdQuery(resource.CourseId));
+
+            if (registrations.Where(r => r.CourseId == resource.CourseId && r.StudentId == resource.StudentId)
+                .FirstOrDefault() is not null)
+                return BadRequest("YA EXISTE UNA MATRICULA CON EL ESTUDIANTE Y CURSO.");
 
             var result = await registrationCommandService.Handle
                 (CreateRegistrationCommandFromResourceAssembler

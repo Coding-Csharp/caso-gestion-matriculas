@@ -6,7 +6,6 @@ namespace CasoGestionMatriculas.Operation.Interfaces.REST.Transform
     public class CreateCourseCommandFromResourceAssembler
     {
         public static CreateCourseCommand ToCommandFromResource
-            (CreateCourseResource resource) =>
-            new(resource.EnrollmentDate, resource.Name);
+            (CreateCourseResource resource) => new(resource.Name);
     }
 }
