@@ -4,7 +4,8 @@ namespace CasoGestionMatriculas.Operation.Domain.Services
 {
     public interface IRegistrationCommandService
     {
-        public Task<string> Handle(CreateRegistrationCommand command);
-        public Task<string> Handle(UpdateRegistrationCommand command);
+        public Task<bool> Handle(CreateRegistrationCommand command);
+        public bool Handle(UpdateRegistrationCommand command);
+        public bool Handle(DeleteRegistrationCommand command);
     }
 }

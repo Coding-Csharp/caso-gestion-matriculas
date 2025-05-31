@@ -4,6 +4,6 @@ namespace CasoGestionMatriculas.Operation.Domain.Services
 {
     public interface ICourseCommandService
     {
-        public Task<string> Handle(CreateCourseCommand command);
+        public Task<bool> Handle(CreateCourseCommand command);
     }
 }
